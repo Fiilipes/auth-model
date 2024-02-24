@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 import localFont from 'next/font/local'
 
 // Font files can be colocated inside of `pages`
-const myFont = localFont({ src: "@/fonts/Nohemi-VF.ttf" })
+const myFont = localFont({ src: "../fonts/Nohemi-Bold-BF6438cc577b524.woff" })
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={myFont.className}>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
