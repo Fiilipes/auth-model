@@ -51,8 +51,11 @@ export const RegisterForm = () => {
 
     return (
         <CardWrapper
-            headerLabel={"Create an account"}
-            backButtonLabel={"Already have an account?"}
+            headerLabel={"Create new Notes account"}
+            backButtonLabel={{
+                message: "Already have an account?",
+                link: "Login",
+            }}
             backButtonHref={"/auth/login"}
             showSocial
         >

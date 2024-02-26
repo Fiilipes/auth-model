@@ -4,7 +4,10 @@ import {Button} from "@/components/ui/button";
 import Link from "next/link";
 
 interface BackButtonProps {
-    label: string;
+    label: {
+        message: string,
+        link: string
+    };
     href: string;
 }
 
@@ -13,10 +16,8 @@ export const BackButton = ({
     href
 }: BackButtonProps) => {
     return (
-        <Button variant={"link"} className={"font-normal w-full"} size={"sm"} asChild>
-            <Link href={href}>
-                {label}
-            </Link>
-        </Button>
+        <article>
+            {label.message} <Link href={href} className={"text-blue-500 font-semibold"}>{label.link}</Link>
+        </article>
     )
 }

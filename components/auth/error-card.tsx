@@ -3,7 +3,10 @@ import {ExclamationTriangleIcon} from "@radix-ui/react-icons";
 
 export const ErrorCard = () => {
     return (
-        <CardWrapper headerLabel={"Oops! Something went wrong!"} backButtonLabel={"Back to login"} backButtonHref={"/auth/login"}>
+        <CardWrapper headerLabel={"Oops! Something went wrong!"} backButtonLabel={{
+            message: "Got lost on your way?",
+            link: "Log in"
+        }} backButtonHref={"/auth/login"}>
             <section className={"w-full flex items-center justify-center "}>
                 <ExclamationTriangleIcon className={"text-destructive"} />
             </section>

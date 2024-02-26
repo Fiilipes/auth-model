@@ -4,6 +4,7 @@ import type { NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import Github from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
+import Discord from "next-auth/providers/discord"
 
 
 
@@ -15,6 +16,7 @@ import {getUserByEmail} from "@/data/user";
 export default {
     providers: [
         Google({
+            allowDangerousEmailAccountLinking: true,
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET
         }),
@@ -22,7 +24,13 @@ export default {
             clientId: process.env.GITHUB_CLIENT_ID,
             clientSecret: process.env.GITHUB_CLIENT_SECRET
         }),
-        Credentials({
+        Discord({
+            allowDangerousEmailAccountLinking: true,
+            clientId: process.env.DISCORD_CLIENT_ID,
+            clientSecret: process.env.DISCORD_CLIENT_SECRET
+        }),
+        Credentials(
+            {
             async authorize(credentials) {
                 const validatedFields = LoginSchema.safeParse(credentials)
 
