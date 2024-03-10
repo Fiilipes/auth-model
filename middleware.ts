@@ -38,7 +38,7 @@ export default auth((req) => {
 
 })
 
-// Optionally, don't invoke Middleware on some paths
+// the only public routes are the next.js, home route and api routes.
 export const config = {
     matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 }

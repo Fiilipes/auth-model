@@ -9,26 +9,25 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
-import {Badge} from "@/components/ui/badge";
-import {LuScanFace} from "react-icons/lu";
+
 import {authprefix} from "@/assets/auth";
 
-interface LoginButtonProps {
+interface RegisterButtonProps {
     children: React.ReactNode;
     mode?: "modal" | "redirect";
     asChild?: boolean;
 }
 
-export const LoginButton = ({
+export const RegisterButton = ({
                                 children,
                                 mode = "redirect",
                                 asChild
-                            }: LoginButtonProps) => {
+                            }: RegisterButtonProps) => {
 
     const router = useRouter()
 
     const onClick = () => {
-        router.push("/auth/login")
+        router.push("/auth/register")
     }
 
     if (mode === "modal") {
@@ -44,13 +43,13 @@ export const LoginButton = ({
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                    <Button variant={"secondary"} size={"lg"} className={"rounded-full border dark:bg-black bg-white  text-black font-semibold dark:text-white hover:bg-[#000] hover:text-[#fff] dark:hover:bg-[#222]"}>
+                    <Button variant={"secondary"} size={"lg"} className={"rounded-full border bg-[#111] dark:bg-white hover:bg-[#000] dark:text-black font-semibold text-white "}>
                         {children}
                     </Button>
                 </TooltipTrigger>
                 <TooltipContent className={"flex flex-row items-center justify-center"}>
-                    {authprefix.buttons.login.tooltip.icon}
-                    {authprefix.buttons.login.tooltip.label}
+                    {authprefix.buttons.register.tooltip.icon}
+                    {authprefix.buttons.register.tooltip.label}
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>

@@ -2,7 +2,6 @@ import type { NextAuthConfig } from "next-auth"
 
 
 import Credentials from "next-auth/providers/credentials"
-import Github from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
 import Discord from "next-auth/providers/discord"
 
@@ -15,14 +14,19 @@ import {getUserByEmail} from "@/data/user";
 
 export default {
     providers: [
+
+        //
+        //
+        //      HERE ARE ALL THE CONNECTED PROVIDERS
+        //      COMMENT SOME IF DON'T WANT TO USE
+        //      allowDangerousEmailAccountLinking: true MEANS THAT YOU CAN LOGIN EVEN IF YOU ARE ALREADY LOGGED WITH DIFFERENT PROVIDER
+        //
+        //
+
         Google({
             allowDangerousEmailAccountLinking: true,
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET
-        }),
-        Github({
-            clientId: process.env.GITHUB_CLIENT_ID,
-            clientSecret: process.env.GITHUB_CLIENT_SECRET
         }),
         Discord({
             allowDangerousEmailAccountLinking: true,
@@ -39,6 +43,8 @@ export default {
 
                     const user = await getUserByEmail(email)
                     if (!user || !user.password) return null
+
+                    //      CODING THE PASSWORD --- IMPORTANT
 
                     const passwordsMatch = await bcrypt.compare(password, user.password)
 

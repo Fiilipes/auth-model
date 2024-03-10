@@ -2,6 +2,7 @@ import { Poppins } from "next/font/google"
 import { cn } from "@/lib/utils"
 import {Button} from "@/components/ui/button";
 import {LoginButton} from "@/components/auth/login-button";
+import {Navbar} from "@/app/(protected)/_components/navbar";
 
 const font = Poppins({
     subsets: ['latin'],
@@ -11,9 +12,7 @@ const font = Poppins({
 export default function Home() {
     return (
         <main className={"flex flex-col h-full items-center justify-center"}>
-            <LoginButton>
-                Log in
-            </LoginButton>
+            <Navbar />
         </main>
     );
 }
