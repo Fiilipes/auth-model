@@ -20,7 +20,7 @@ export const Navbar = () => {
 
     const pathname = usePathname();
     const user = useCurrentUser();
-    const [activeButtonId, setActiveButtonId] = useState(null);
+    const [activeButtonId, setActiveButtonId] = useState<number | null>(null);
 
     return (
         <nav className="bg-secondary flex justify-between items-center p-4 rounded-xl w-[600px] bg-white">
